@@ -1,0 +1,10 @@
+{
+  "name": "qrcode",
+  "integrations": {
+    "capacitor": {},
+    "cordova": {
+      "enabled": false
+    }
+  },
+  "type": "angular"
+}

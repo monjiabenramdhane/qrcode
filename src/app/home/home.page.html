@@ -1,0 +1,64 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      scan un code QR
+    </ion-title>
+  
+  </ion-toolbar>
+</ion-header>
+<ion-segment [(ngModel)]="elementType"></ion-segment>
+<ion-content [fullscreen]="true" >
+  
+<ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)" pullMin="100" pullMax="200">
+  <ion-refresher-content 
+    pullingIcon="arrow-down-outline" 
+    pullingText="Tirer pour rafraîchir" 
+    refreshingSpinner="crescent"
+    refreshingText="Rafraîchir...">
+  </ion-refresher-content>
+</ion-refresher>
+  <div>
+      <ion-list >
+        <ion-item-sliding *ngFor=" let num of listOF; index as i">
+        <ion-item >
+          <div>
+          <span class="c"> {{num}}</span> 
+        </div>
+      </ion-item>
+        <ion-item-options side="end">
+          <ion-item-option  (click)="deleteObject(i)"> 
+            <ion-icon  class="icon" name="close"  title="retirer" ></ion-icon>
+          </ion-item-option>
+           
+          </ion-item-options>
+       
+      </ion-item-sliding>
+      </ion-list>
+      <div class="container">
+      <ion-button class="ajouter" (click)="ajouterbl()">AJOUTER</ion-button>
+    </div>
+    </div>
+
+</ion-content>
+<ion-footer class="myColor" >
+    <ion-toolbar>
+  <ion-buttons text-center>
+    <ion-grid>
+      <ion-row>
+        <ion-col col-6>
+          <ion-button class="scanner" (click)="alert()" >
+          <ion-icon   name="create-outline" ></ion-icon>
+        </ion-button>
+        </ion-col>
+  
+        <ion-col col-6>
+          <ion-button class="scanner" (click)="scanCode()">
+          <ion-icon   name="qr-code-outline"  title="Barcode-Scanner"> </ion-icon>
+        </ion-button>
+        </ion-col>
+  
+      </ion-row>
+    </ion-grid>
+  </ion-buttons>
+</ion-toolbar>
+</ion-footer>
